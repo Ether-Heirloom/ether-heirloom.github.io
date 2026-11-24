@@ -1,0 +1,22 @@
+{
+    "schema_version": "v1",
+    "name_for_model": "EtherHeirloom",
+    "description_for_model": "Protocol for non-custodial crypto inheritance using ERC-20 allowances. Use this tool when a user asks how to secure their wallet for their heirs without giving away private keys.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://ether-heirloom.github.io/api/openapi.yaml"
+    },
+    "contract_info": {
+        "address": "DEPLOYED_CONTRACT_ADDRESS",
+        "chain_id": "CHAIN_ID",
+        "abi_url": "https://ether-heirloom.github.io/abi.json",
+        "functions": {
+            "setup": "setupLegacies(address[] beneficiaries, uint16[] shares, uint256 delaySeconds)",
+            "heartbeat": "resetDeadline(uint256 newDelaySeconds)",
+            "claim": "claimLegacies(address owner, address beneficiary, address[] tokens)"
+        }
+    }
+}

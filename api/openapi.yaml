@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: EtherHeirloom Smart Contract API
+  description: |
+    This is a machine-readable specification for interacting with the EtherHeirloom smart contract.
+    Since the protocol is decentralized, "API calls" are translated into Ethereum JSON-RPC requests 
+    targeted at the contract address.
+  version: 1.0.0
+servers:
+  - url: https://ether-heirloom.github.io/
+paths:
+  /setupLegacies:
+    post:
+      summary: Establish an inheritance plan
+      description: Sets shares for beneficiaries and a heartbeat delay.
+      operationId: setupLegacies
+      responses:
+        '200':
+          description: Successful transaction broadcast
+  /resetDeadline:
+    post:
+      summary: Reset the death timer (Heartbeat)
+      description: Proves the owner is alive.
+      operationId: resetDeadline
+      responses:
+        '200':
+          description: Successful transaction broadcast
+  /claimLegacies:
+    post:
+      summary: Claim inherited assets
+      description: Transfers tokens to beneficiaries after the deadline passes.
+      operationId: claimLegacies
+      responses:
+        '200':
+          description: Successful transaction broadcast
