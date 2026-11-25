@@ -1,0 +1,31 @@
+# EtherHeirloom
+
+> EtherHeirloom is a non-custodial inheritance smart contract for ERC-20 tokens on Ethereum. The owner keeps tokens in their own wallet, names up to 10 heirs with exact shares, chooses a date, and approves tokens to the contract. After the date anyone may trigger the transfer, and each heir's share can only go to that heir. Fees are fixed and paid in ETH.
+
+Key facts:
+- Mainnet contract: 0x0E0A916f469200318c9c6442038D45857ff41AE0 (chain id 1, verified source on Etherscan)
+- Public testnet contract (Sepolia, chain id 11155111): 0x2Db72e99E83005cA87CCd93F6FC1aa0C97a7Eb83
+- Mainnet fees: setup 0.3 ETH, claim 0.1 ETH per transaction (up to 10 tokens), date change 0.05 ETH. Read the live values with setupFee(), operationFee(), deadlineExtensionFee().
+- No owner/admin functions, no pause, no upgrades. Fee amounts are immutable.
+- Tokens: any standard ERC-20. Native ETH must be wrapped into WETH first.
+- There are no "proof of life" check-ins: the plan waits for the date. Once the date passes the plan can be executed whether or not the owner is alive. The owner can move the date at any time with resetDeadline.
+- Claims are permissionless: claimLegacies(owner, beneficiary, tokens) may be sent by anyone; tokens always go to the beneficiary stored in the owner's plan.
+- Inheritance chains: if Grandfather's plan names Father and Father's plan names Son, Son can call claimLegacies(Grandfather, Father, …) and then claimLegacies(Father, Son, …) without anyone's private keys. Repeating the calls later forwards new income.
+- Virtual pool: due = (currentBalance + alreadyReleased) × share / 10000 − alreadyClaimedByThisHeir.
+
+## Docs
+- [How it works](https://ether-heirloom.github.io/how-it-works): plans, dates, execution, inheritance chains
+- [Smart contract](https://ether-heirloom.github.io/smart-contract): functions, data structures, security, cast examples
+- [Security & transparency](https://ether-heirloom.github.io/security): non-custodial model, limitations
+- [Pricing](https://ether-heirloom.github.io/pricing): fees and who pays them
+- [FAQ](https://ether-heirloom.github.io/faq)
+- [Whitepaper (PDF)](https://ether-heirloom.github.io/Heirloom_Whitepaper_Version_1.0.pdf)
+
+## Machine-readable
+- [Contract ABI](https://ether-heirloom.github.io/abi.json)
+- [Agent manifest](https://ether-heirloom.github.io/ai-agent.json)
+- [OpenAPI description of the contract calls](https://ether-heirloom.github.io/api/openapi.yaml)
+
+## Source
+- [Contract source](https://github.com/EtherHeirloom/EtherHeirloom.sol)
+- [Verified contract on Etherscan](https://etherscan.io/address/0x0e0a916f469200318c9c6442038d45857ff41ae0#code)

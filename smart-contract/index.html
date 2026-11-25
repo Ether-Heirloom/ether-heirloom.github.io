@@ -6,46 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
-  <title>Ether-Heirloom: The only way to guarantee your family inherits your Ethereum legacy.</title>
+  <title>Smart Contract | Ether-Heirloom</title>
   <meta name="description"
-    content="Ether-Heirloom: The only way to guarantee your family inherits your Ethereum legacy. Blockchain-powered digital inheritance. Automatically transfer your crypto assets to beneficiaries after inactivity. Secure, automated, non-custodial." />
+    content="EtherHeirloom.sol reference: setupLegacies, resetDeadline, claimLegacies, data structures, fees and cast examples for Ethereum mainnet and Sepolia." />
   <meta name="author" content="Ether-Heirloom" />
+  <link rel="canonical" href="https://ether-heirloom.github.io/smart-contract/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0f1a" />
 
-  <meta property="og:title"
-    content="Ether-Heirloom: The only way to guarantee your family inherits your Ethereum legacy." />
+  <meta property="og:site_name" content="Ether-Heirloom" />
+  <meta property="og:title" content="Smart Contract | Ether-Heirloom" />
   <meta property="og:description"
-    content="Ether-Heirloom: The only way to guarantee your family inherits your Ethereum legacy. Blockchain-powered digital inheritance. Automatically transfer your crypto assets to beneficiaries after inactivity." />
+    content="EtherHeirloom.sol reference: setupLegacies, resetDeadline, claimLegacies, data structures, fees and cast examples for Ethereum mainnet and Sepolia." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/ether-heirloom-og.png" />
+  <meta property="og:url" content="https://ether-heirloom.github.io/smart-contract/" />
+  <meta property="og:image" content="https://ether-heirloom.github.io/assets/ether-heirloom-og.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@EtherHeirloom" />
   <meta name="twitter:creator" content="@EtherHeirloom" />
-  <meta name="twitter:image" content="/assets/ether-heirloom-og.png" />
+  <meta name="twitter:title" content="Smart Contract | Ether-Heirloom" />
+  <meta name="twitter:description"
+    content="EtherHeirloom.sol reference: setupLegacies, resetDeadline, claimLegacies, data structures, fees and cast examples for Ethereum mainnet and Sepolia." />
+  <meta name="twitter:image" content="https://ether-heirloom.github.io/assets/ether-heirloom-og.png" />
+  <link rel="alternate" type="text/plain" title="LLM summary" href="/llms.txt" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareSourceCode",
-      "name": "EtherHeirloom",
-      "description": "Non-custodial crypto inheritance protocol using ERC-20 allowances.",
-      "codeRepository": "https://github.com/Ether-Heirloom/ether-heirloom.github.io/",
-      "runtimePlatform": "Ethereum, EVM-compatible networks",
-      "programmingLanguage": "Solidity",
-      "applicationCategory": "Decentralized Finance, Security",
-      "offers": {
-        "@type": "Offer",
-        "name": "Inheritance Setup",
-        "description": "Secure crypto inheritance using allowances."
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Ether-Heirloom",
+          "url": "https://ether-heirloom.github.io/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Ether-Heirloom",
+          "url": "https://ether-heirloom.github.io/",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web, Ethereum",
+          "description": "Non-custodial inheritance for ERC-20 tokens on Ethereum using token allowances and a fixed execution date.",
+          "offers": { "@type": "Offer", "price": "0.3", "priceCurrency": "ETH", "description": "One-time plan setup fee (immutable)" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "EtherHeirloom.sol",
+          "codeRepository": "https://github.com/EtherHeirloom/EtherHeirloom.sol",
+          "programmingLanguage": "Solidity",
+          "runtimePlatform": "Ethereum"
+        }
+      ]
     }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="084b93a9-e01b-4f7d-9e18-d1bb357ae5db"></script>
-  <script type="module" crossorigin src="/assets/index-BfYG1LLn.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CgSkbwhv.css">
+  <script type="module" crossorigin src="/assets/index-C0_eU5oD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BPxE1Bdu.css">
 </head>
 
 <body>
   <div id="root"></div>
+  <noscript>
+    <h1>Ether-Heirloom: non-custodial ERC-20 inheritance on Ethereum</h1>
+    <p>Choose up to 10 heirs and a date. After that date each heir's share of your approved ERC-20 tokens moves from your wallet straight to them. Tokens never leave your wallet before then. Anyone can trigger the transfer, but tokens only go to the heir. Enable JavaScript to use the app, or read <a href="/llms.txt">llms.txt</a>.</p>
+  </noscript>
 </body>
 
 </html>

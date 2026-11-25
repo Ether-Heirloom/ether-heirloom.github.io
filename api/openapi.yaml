@@ -12,15 +12,15 @@ paths:
   /setupLegacies:
     post:
       summary: Establish an inheritance plan
-      description: Sets shares for beneficiaries and a heartbeat delay.
+      description: Sets heirs, their shares (basis points, total 10000) and the date (now + delaySeconds) after which the plan can be executed. Payable with setupFee().
       operationId: setupLegacies
       responses:
         '200':
           description: Successful transaction broadcast
   /resetDeadline:
     post:
-      summary: Reset the death timer (Heartbeat)
-      description: Proves the owner is alive.
+      summary: Move the plan date
+      description: Sets the date to now + newDelaySeconds (later or earlier). Heirs and shares are unchanged. Payable with deadlineExtensionFee(). There are no proof-of-life check-ins.
       operationId: resetDeadline
       responses:
         '200':
@@ -28,7 +28,7 @@ paths:
   /claimLegacies:
     post:
       summary: Claim inherited assets
-      description: Transfers tokens to beneficiaries after the deadline passes.
+      description: After the owner's date, anyone may call it. Transfers the beneficiary's due share of each token from the owner to the beneficiary stored in the plan. Payable with operationFee() per transaction (up to 10 tokens).
       operationId: claimLegacies
       responses:
         '200':

@@ -1,7 +1,7 @@
 {
     "schema_version": "v1",
     "name_for_model": "EtherHeirloom",
-    "description_for_model": "Protocol for non-custodial crypto inheritance using ERC-20 allowances. Use this tool when a user asks how to secure their wallet for their heirs without giving away private keys.",
+    "description_for_model": "Non-custodial inheritance for ERC-20 tokens on Ethereum. The owner keeps tokens in their wallet, names up to 10 heirs with shares in basis points, picks a date and approves tokens to the contract. After the date anyone can call claimLegacies; tokens only go to the listed heir. No proof-of-life check-ins: the plan waits for the date, which the owner can move with resetDeadline. Native ETH must be wrapped into WETH. Use when a user asks how to pass crypto to heirs without sharing private keys.",
     "auth": {
         "type": "none"
     },
@@ -9,14 +9,23 @@
         "type": "openapi",
         "url": "https://ether-heirloom.github.io/api/openapi.yaml"
     },
+    "llms_txt": "https://ether-heirloom.github.io/llms.txt",
     "contract_info": {
-        "address": "DEPLOYED_CONTRACT_ADDRESS",
-        "chain_id": "CHAIN_ID",
+        "address": "0x0E0A916f469200318c9c6442038D45857ff41AE0",
+        "chain_id": 1,
+        "testnet": {
+            "address": "0x2Db72e99E83005cA87CCd93F6FC1aa0C97a7Eb83",
+            "chain_id": 11155111
+        },
         "abi_url": "https://ether-heirloom.github.io/abi.json",
         "functions": {
-            "setup": "setupLegacies(address[] beneficiaries, uint16[] shares, uint256 delaySeconds)",
-            "heartbeat": "resetDeadline(uint256 newDelaySeconds)",
-            "claim": "claimLegacies(address owner, address beneficiary, address[] tokens)"
+            "setup": "setupLegacies(address[] beneficiaries, uint16[] shares, uint256 delaySeconds) payable",
+            "change_date": "resetDeadline(uint256 newDelaySeconds) payable",
+            "claim": "claimLegacies(address owner, address beneficiary, address[] tokens) payable",
+            "plans_of_owner": "getHeirloomsByOwner(address owner, uint256 offset, uint256 limit) view",
+            "plans_for_heir": "getHeirloomsForBeneficiary(address beneficiary, uint256 offset, uint256 limit) view",
+            "date_of_owner": "ownerExecutionTimestamp(address owner) view",
+            "fees": "setupFee(), operationFee(), deadlineExtensionFee() view"
         }
     }
 }
