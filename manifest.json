@@ -1,0 +1,5 @@
+{
+  "name": "Ether-Heirloom",
+  "description": "Non-custodial ERC-20 inheritance. Choose heirs and a date; after it, each heir's share moves from this Safe straight to them. No custody, no check-ins.",
+  "iconPath": "logo.png"
+}
