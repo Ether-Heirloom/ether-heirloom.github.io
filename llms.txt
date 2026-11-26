@@ -10,6 +10,7 @@ Key facts:
 - Tokens: any standard ERC-20. Native ETH must be wrapped into WETH first.
 - Which tokens a plan covers: every token with allowance(owner, contract) > 0. To find them, read Approval(owner, spender = contract) events from the contract's deploy block (mainnet 24359063, Sepolia 10167277).
 - There are no "proof of life" check-ins: the plan waits for the date. Once the date passes the plan can be executed whether or not the owner is alive. The owner can move the date at any time with resetDeadline.
+- The owner stays in control: setupLegacies again replaces the plan, resetDeadline moves the date, and approve(contract, 0) on a token revokes it so nothing more of that token can move (the dashboard has a Revoke button per token).
 - Claims are permissionless: claimLegacies(owner, beneficiary, tokens) may be sent by anyone; tokens always go to the beneficiary stored in the owner's plan.
 - Inheritance chains: if Ancestor's plan names Heir and Heir's plan names Descendant, Descendant can call claimLegacies(Ancestor, Heir, …) and then claimLegacies(Heir, Descendant, …) without anyone's private keys. Repeating the calls later forwards new income.
 - Virtual pool: due = (currentBalance + alreadyReleased) × share / 10000 − alreadyClaimedByThisHeir.
