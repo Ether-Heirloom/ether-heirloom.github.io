@@ -1,0 +1,5 @@
+Contact: https://github.com/EtherHeirloom/EtherHeirloom.sol/security/advisories/new
+Contact: mailto:Ether-Heirloom@proton.me
+Policy: https://github.com/EtherHeirloom/EtherHeirloom.sol/blob/main/SECURITY.md
+Expires: 2027-11-26T00:00:00.000Z
+Preferred-Languages: en
